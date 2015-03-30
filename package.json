@@ -1,0 +1,33 @@
+{
+  "name": "tito-attendees",
+  "version": "1.0.0",
+  "description": "Something something Tito",
+  "main": "app/index.js",
+  "dependencies": {
+    "body": "^5.0.0",
+    "debug": "^2.1.3",
+    "error": "^6.0.0",
+    "standard": "^3.3.0"
+  },
+  "devDependencies": {
+    "standard": "^3.3.0",
+    "tape": "^3.5.0"
+  },
+  "scripts": {
+    "start": "node app",
+    "test": "standard && tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshgillies/tito-attendees.git"
+  },
+  "keywords": [
+    "tito"
+  ],
+  "author": "Josh Gillies <npm@joshgilli.es> (http://joshgilli.es/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshgillies/tito-attendees/issues"
+  },
+  "homepage": "https://github.com/joshgillies/tito-attendees"
+}
