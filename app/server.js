@@ -28,7 +28,7 @@ module.exports = function server (req, res) {
     else handleError(ClientError({ title: 'Unknown webhook name: ' + name, statusCode: 400 }))
   }
 
-  if (req.url === '/' + process.env.TITO_ACCESS_KEY) {
+  if (req.url === '/' + (process.env.TITO_ACCESS_KEY || '')) {
     if (req.method === 'POST') {
       if (req.headers['x-webhook-name']) return processWebhook(req.headers['x-webhook-name'])
 
