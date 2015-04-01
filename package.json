@@ -1,7 +1,7 @@
 {
   "name": "tito-attendees",
   "version": "1.0.0",
-  "description": "Something something Tito",
+  "description": "A simple webhook service for Tito.",
   "main": "app/index.js",
   "dependencies": {
     "body": "^5.0.0",
