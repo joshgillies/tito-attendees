@@ -1,19 +1,20 @@
 var ClientError = require('errors/client')
 var debug = require('debug')('http')
 var jsonBody = require('body/json')
+var sendPlain = require('send-data/plain')
 
 module.exports = function server (req, res) {
   function handleError (err) {
-    res.writeHead(err.statusCode || 500, {'Content-Type': 'text/plain'})
     debug(err.message || err)
-    res.end(err.message || err.toString())
+    sendPlain(req, res, {
+      body: err.message || err,
+      statusCode: err.statusCode || 500
+    })
   }
 
   function handlePost (err, body) {
     if (err) return handleError(err)
-
-    res.writeHead(200, {'Content-Type': 'text/plain'})
-    res.end('got POST ' + JSON.stringify(body))
+    sendPlain(req, res, 'ok')
   }
 
   function processWebhook (name) {
@@ -37,8 +38,7 @@ module.exports = function server (req, res) {
       handleError(ClientError({ title: 'Method not supported: ' + req.method, statusCode: 405 }))
     }
   } else if (req.url === '/ping') {
-    res.writeHead(200, {'Content-Type': 'text/plain'})
-    res.end('ok')
+    sendPlain(req, res, 'ok')
   } else {
     handleError(ClientError({ title: 'Unknown route: ' + req.url, statusCode: 404 }))
   }

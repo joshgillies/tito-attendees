@@ -77,6 +77,7 @@ test('process webhook', function (t) {
   var serverStream = serverTest(app, '/', opts, function (err, res) {
     t.ifError(err, 'no error')
     t.equal(res.statusCode, 200, 'correct statusCode')
+    t.equal(res.body, 'ok', 'correct body content')
     t.end()
   })
 
