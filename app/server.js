@@ -25,7 +25,7 @@ module.exports = function server (req, res) {
       'ticket.unsnoozed',
       'ticket.reassigned'
     ]
-    if (accepted.indexOf(name) >= 0) jsonBody(req, res, handlePost)
+    if (~accepted.indexOf(name)) jsonBody(req, res, handlePost)
     else handleError(ClientError({ title: 'Unknown webhook name: ' + name, statusCode: 400 }))
   }
 
