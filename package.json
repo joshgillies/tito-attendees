@@ -7,11 +7,11 @@
     "body": "^5.0.0",
     "debug": "^2.1.3",
     "error": "^6.0.0",
-    "send-data": "^7.0.0"
+    "tito-webhook": "^1.0.0"
   },
   "devDependencies": {
     "servertest": "^1.2.0",
-    "standard": "^3.3.0",
+    "standard": "^3.5.0",
     "tape": "^3.5.0"
   },
   "scripts": {
